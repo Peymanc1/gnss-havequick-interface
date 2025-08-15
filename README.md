@@ -1,55 +1,76 @@
-# HaveQuick II Interface (GPS ICD-060A Compatible) – FPGA Design
+# GPS-ICD-060A Compatible HaveQuick‐II Time Distribution Module (FPGA Design)
 
-This repository contains an FPGA-based implementation of the **HaveQuick II** timing interface, fully compatible with the **GPS ICD-060A** specification.  
-The module was developed as part of a GNSS receiver project and is capable of decoding HQ-II time-of-day information and generating a disciplined **1PPS** output with sub-microsecond accuracy.
+This project contains an FPGA implementation of a **HaveQuick-II time distribution transmitter**, compliant with the **GPS ICD-060A** specification.
 
----
-
-## ✅ Features
-
-| Feature | Description |
-|--------|-------------|
-| Protocol compatibility | **HaveQuick II**, **GPS ICD-060A** compliant |
-| Input | Time-of-Day serial frame from GNSS receiver |
-| Output | 1PPS signal synchronized to GNSS time |
-| FPGA implementation | RTL (Verilog/SystemVerilog) |
-| Debug support | Integrated timestamp counter & logic analyzer hooks |
+The module receives a reference **1PPS** signal from a GNSS receiver and immediately outputs the current **UTC Time-of-Day (TOD)** as a **Manchester (bi-phase level)** encoded serial data stream.  
+Each TOD field (hour, minute, second) is formatted in **BCD** and protected with **Hamming(7,4)** parity before being Manchester-encoded and sent to the external interface.
 
 ---
 
-## 📂 Repository Structure
+## ✅ Transmitter Function
 
-docs/
-  HaveQuick_Report.pdf     <- Full 21-page design report
-src/
-  rtl/                     <- HDL source files (HaveQuick decoder, PPS generator, state machine)
-  sim/                     <- Testbench and simulation scripts
-images/
-  block_diagram.png        <- High-level architecture (optional)
-README.md
+| Stage | Description |
+|------|---------------------------------------------------------------------|
+| PPS Edge Detection | 1PPS reference rising edge is used as transmission start |
+| TOD Encoder | UTC hh:mm:ss converted to BCD format |
+| Hamming Encoder | Hamming(7,4) applied to each 4-bit BCD field |
+| Manchester Encoder | Biphase-level encoding (300 µs High + 300 µs Low) |
+| Serial Output | Manchester bit stream transmitted over TX pin |
 
-## 🗒️ Quick Overview
-
-**HaveQuick II** is a timing protocol used in GNSS systems to distribute precise time-of-day information over serial links.  
-This design implements the full HQ-II frame decoding and internal time synchronization logic as defined in **GPS ICD-060A**, including:
-
-- serial frame parsing (BAUD, symbol framing and sync pattern detection)  
-- BCD to binary conversion of time fields  
-- internal epoch counter  
-- 1PPS pulse generation  
-- out-of-range and TOD validation checks  
+📝 Frame structure and timing fully follow the **Time Mark Distribution (HaveQuick)** specification in **GPS-ICD-060A**.
 
 ---
 
-## 📄 Full Report
+## ⏱ Timing Parameters (ICD-060A)
 
-For a detailed description of the design, architecture and test results please refer to:
+| Parameter       | Value                                         |
+|----------------|-----------------------------------------------|
+| Bit period      | **600 µs** (Manchester bi-phase level)        |
+| Symbol shape    | 300 µs High + 300 µs Low                      |
+| Frame duration  | 72–80 ms  (depending on optional fields)      |
+| Time format     | UTC TOD (hh:mm:ss / BCD + Hamming codes)      |
 
+---
+
+## 🧱 RTL Source Files
+
+| File                    | Function                                              |
+|-------------------------|--------------------------------------------------------|
+| `TOD_Generator.v`       | UTC Time-of-Day formatter (hh:mm:ss → BCD)             |
+| `data_to_hamming.v`     | BCD → Hamming(7,4) encoder                             |
+| `hamming.v`             | Hamming(7,4) verifier / encoder                        |
+| `fifo_h_to_m.v`         | FIFO between Hamming output and Manchester encoder     |
+| `bcd.v`, `bin_to_bcd.v` | Basic binary / BCD conversion modules                  |
+| `top.v`                 | Top-level HaveQuick-II transmitter module              |
+
+---
+
+## 📄 Documentation
+
+Detailed 21-page design report:  
 👉 `docs/HaveQuick_Report.pdf`
 
+Includes:
+
+- GPS-ICD-060A Time Distribution overview
+- Hamming code and Manchester encoder implementation
+- RTL block diagrams and simulation waveforms
+
 ---
+
+## 🧪 Simulation
+
+Simulation test benches (`src/sim/`) cover:
+
+- PPS trigger → TOD transmission
+- Frame integrity
+- Hamming error injection
+- Manchester output waveform validation
+
+---
+![Block Diagram](images/blockdesign.png)
 
 ## 👨‍💻 Author
 
 **Peyman Cibalı**  
-Gazi University – Electrical & Electronics Engineering  
+Electrical & Electronics Engineer — Digital Design / FPGA
