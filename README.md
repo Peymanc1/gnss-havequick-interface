@@ -13,7 +13,7 @@ Each TOD field (hour, minute, second) is formatted in **BCD** and protected with
 |------|---------------------------------------------------------------------|
 | PPS Edge Detection | 1PPS reference rising edge is used as transmission start |
 | TOD Encoder | UTC hh:mm:ss converted to BCD format |
-| Hamming Encoder | Hamming(7,4) applied to each 4-bit BCD field |
+| Hamming Encoder | Hamming(8,4) applied to each 4-bit BCD field |
 | Manchester Encoder | Biphase-level encoding (300 µs High + 300 µs Low) |
 | Serial Output | Manchester bit stream transmitted over TX pin |
 
