@@ -1,0 +1,54 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.530526",
+   "Default View_TopLeft":"-236,-9",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk_0 -pg 1 -lvl 0 -x -10 -y 290 -defaultsOSRD
+preplace port port-id_rst_0 -pg 1 -lvl 0 -x -10 -y 310 -defaultsOSRD
+preplace port port-id_start_0 -pg 1 -lvl 0 -x -10 -y 330 -defaultsOSRD
+preplace port port-id_manchester_out_0 -pg 1 -lvl 5 -x 1830 -y 220 -defaultsOSRD
+preplace portBus wn10_0 -pg 1 -lvl 0 -x -10 -y 500 -defaultsOSRD
+preplace portBus tow_sec_0 -pg 1 -lvl 0 -x -10 -y 520 -defaultsOSRD
+preplace inst gps2utc_ff_0 -pg 1 -lvl 1 -x 180 -y 480 -defaultsOSRD
+preplace inst ManchesterEncoder_HQ_0 -pg 1 -lvl 4 -x 1640 -y 220 -defaultsOSRD
+preplace inst hamming_encoder_0 -pg 1 -lvl 3 -x 1300 -y 100 -defaultsOSRD
+preplace inst Binary_to_BCD_0 -pg 1 -lvl 2 -x 720 -y 300 -defaultsOSRD
+preplace inst Binary_to_BCD_1 -pg 1 -lvl 2 -x 720 -y 440 -defaultsOSRD
+preplace inst Binary_to_BCD_2 -pg 1 -lvl 2 -x 720 -y 580 -defaultsOSRD
+preplace inst Binary_to_BCD_3 -pg 1 -lvl 2 -x 720 -y 720 -defaultsOSRD
+preplace inst bcd_0 -pg 1 -lvl 2 -x 720 -y 860 -defaultsOSRD
+preplace inst top_0 -pg 1 -lvl 4 -x 1640 -y 520 -defaultsOSRD
+preplace netloc Binary_to_BCD_0_o_BCD 1 2 2 NJ 290 1450
+preplace netloc Binary_to_BCD_0_o_DV 1 2 2 NJ 310 1460
+preplace netloc Binary_to_BCD_1_o_BCD 1 2 2 NJ 430 1430
+preplace netloc Binary_to_BCD_1_o_DV 1 2 2 NJ 450 1440
+preplace netloc Binary_to_BCD_2_o_BCD 1 2 2 870 590 NJ
+preplace netloc Binary_to_BCD_2_o_DV 1 2 2 860 490 NJ
+preplace netloc Binary_to_BCD_3_o_BCD 1 2 2 890 630 NJ
+preplace netloc Binary_to_BCD_3_o_DV 1 2 2 880 510 NJ
+preplace netloc ManchesterEncoder_HQ_0_manchester_out 1 4 1 N 220
+preplace netloc bcd_0_o_BCD 1 2 2 910 610 NJ
+preplace netloc bcd_0_o_DV 1 2 2 900 530 NJ
+preplace netloc clk_0_1 1 0 4 10 290 330 210 870 230 1470
+preplace netloc gps2utc_ff_0_doy 1 1 1 310 510n
+preplace netloc gps2utc_ff_0_hh 1 1 1 310 300n
+preplace netloc gps2utc_ff_0_mm 1 1 1 350 440n
+preplace netloc gps2utc_ff_0_ss 1 1 1 350 490n
+preplace netloc gps2utc_ff_0_valid 1 1 1 340 320n
+preplace netloc gps2utc_ff_0_yy 1 1 1 320 530n
+preplace netloc hamming_encoder_0_product 1 3 1 1480 100n
+preplace netloc hamming_encoder_0_ready 1 3 1 1490 60n
+preplace netloc rst_0_1 1 0 4 20 200 N 200 880 210 N
+preplace netloc start_0_1 1 0 4 30 220 N 220 860 250 N
+preplace netloc top_0_data 1 2 3 900 200 1430J 120 1800
+preplace netloc top_0_done 1 2 3 910 220 1450 130 1790
+preplace netloc top_0_od 1 2 3 910 0 NJ 0 1810
+preplace netloc tow_sec_0_1 1 0 1 NJ 520
+preplace netloc wn10_0_1 1 0 1 NJ 500
+levelinfo -pg 1 -10 180 720 1300 1640 1830
+pagesize -pg 1 -db -bbox -sgen -170 -170 2000 940
+"
+}
+0

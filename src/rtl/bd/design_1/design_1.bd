@@ -1,0 +1,726 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xAE2A2FA0648B9757",
+      "device": "xcku035-fbva676-1-i",
+      "gen_directory": "../../../../project_3.gen/sources_1/bd/design_1",
+      "name": "design_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2024.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "gps2utc_ff_0": "",
+      "ManchesterEncoder_HQ_0": "",
+      "hamming_encoder_0": "",
+      "Binary_to_BCD_0": "",
+      "Binary_to_BCD_1": "",
+      "Binary_to_BCD_2": "",
+      "Binary_to_BCD_3": "",
+      "bcd_0": "",
+      "top_0": ""
+    },
+    "ports": {
+      "clk_0": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "rst_0",
+            "value_src": "default"
+          },
+          "CLK_DOMAIN": {
+            "value": "design_1_clk_0",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "rst_0": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "start_0": {
+        "direction": "I"
+      },
+      "manchester_out_0": {
+        "direction": "O"
+      },
+      "wn10_0": {
+        "direction": "I",
+        "left": "9",
+        "right": "0"
+      },
+      "tow_sec_0": {
+        "direction": "I",
+        "left": "19",
+        "right": "0"
+      }
+    },
+    "components": {
+      "gps2utc_ff_0": {
+        "vlnv": "xilinx.com:module_ref:gps2utc_ff:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_gps2utc_ff_0_1",
+        "xci_path": "ip\\design_1_gps2utc_ff_0_1\\design_1_gps2utc_ff_0_1.xci",
+        "inst_hier_path": "gps2utc_ff_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "gps2utc_ff",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "start": {
+            "direction": "I"
+          },
+          "wn10": {
+            "direction": "I",
+            "left": "9",
+            "right": "0"
+          },
+          "tow_sec": {
+            "direction": "I",
+            "left": "19",
+            "right": "0"
+          },
+          "valid": {
+            "direction": "O"
+          },
+          "hh": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "mm": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "ss": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "doy": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "yy": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          }
+        }
+      },
+      "ManchesterEncoder_HQ_0": {
+        "vlnv": "xilinx.com:module_ref:ManchesterEncoder_HQII:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_ManchesterEncoder_HQ_0_0",
+        "xci_path": "ip\\design_1_ManchesterEncoder_HQ_0_0\\design_1_ManchesterEncoder_HQ_0_0.xci",
+        "inst_hier_path": "ManchesterEncoder_HQ_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "ManchesterEncoder_HQII",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "time_msg": {
+            "direction": "I",
+            "left": "95",
+            "right": "0"
+          },
+          "start": {
+            "direction": "I"
+          },
+          "manchester_out": {
+            "direction": "O"
+          }
+        }
+      },
+      "hamming_encoder_0": {
+        "vlnv": "xilinx.com:module_ref:hamming_encoder:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_hamming_encoder_0_0",
+        "xci_path": "ip\\design_1_hamming_encoder_0_0\\design_1_hamming_encoder_0_0.xci",
+        "inst_hier_path": "hamming_encoder_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "hamming_encoder",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "rst",
+                "value_src": "constant"
+              },
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "rst": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "od": {
+            "direction": "I"
+          },
+          "data": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "done": {
+            "direction": "I"
+          },
+          "ready": {
+            "direction": "O"
+          },
+          "encoded": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "product": {
+            "direction": "O",
+            "left": "95",
+            "right": "0"
+          },
+          "byte_cnt": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "product_valid": {
+            "direction": "O"
+          }
+        }
+      },
+      "Binary_to_BCD_0": {
+        "vlnv": "xilinx.com:module_ref:Binary_to_BCD:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_Binary_to_BCD_0_5",
+        "xci_path": "ip\\design_1_Binary_to_BCD_0_5\\design_1_Binary_to_BCD_0_5.xci",
+        "inst_hier_path": "Binary_to_BCD_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Binary_to_BCD",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_Clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "i_Binary": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "i_Start": {
+            "direction": "I"
+          },
+          "o_BCD": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "o_DV": {
+            "direction": "O"
+          }
+        }
+      },
+      "Binary_to_BCD_1": {
+        "vlnv": "xilinx.com:module_ref:Binary_to_BCD:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_Binary_to_BCD_0_6",
+        "xci_path": "ip\\design_1_Binary_to_BCD_0_6\\design_1_Binary_to_BCD_0_6.xci",
+        "inst_hier_path": "Binary_to_BCD_1",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Binary_to_BCD",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_Clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "i_Binary": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "i_Start": {
+            "direction": "I"
+          },
+          "o_BCD": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "o_DV": {
+            "direction": "O"
+          }
+        }
+      },
+      "Binary_to_BCD_2": {
+        "vlnv": "xilinx.com:module_ref:Binary_to_BCD:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_Binary_to_BCD_0_7",
+        "xci_path": "ip\\design_1_Binary_to_BCD_0_7\\design_1_Binary_to_BCD_0_7.xci",
+        "inst_hier_path": "Binary_to_BCD_2",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Binary_to_BCD",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_Clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "i_Binary": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "i_Start": {
+            "direction": "I"
+          },
+          "o_BCD": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "o_DV": {
+            "direction": "O"
+          }
+        }
+      },
+      "Binary_to_BCD_3": {
+        "vlnv": "xilinx.com:module_ref:Binary_to_BCD:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_Binary_to_BCD_0_8",
+        "xci_path": "ip\\design_1_Binary_to_BCD_0_8\\design_1_Binary_to_BCD_0_8.xci",
+        "inst_hier_path": "Binary_to_BCD_3",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "Binary_to_BCD",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_Clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "i_Binary": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "i_Start": {
+            "direction": "I"
+          },
+          "o_BCD": {
+            "direction": "O",
+            "left": "7",
+            "right": "0"
+          },
+          "o_DV": {
+            "direction": "O"
+          }
+        }
+      },
+      "bcd_0": {
+        "vlnv": "xilinx.com:module_ref:bcd:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_bcd_0_1",
+        "xci_path": "ip\\design_1_bcd_0_1\\design_1_bcd_0_1.xci",
+        "inst_hier_path": "bcd_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "bcd",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "i_Clock": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "i_Binary": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "i_Start": {
+            "direction": "I"
+          },
+          "o_BCD": {
+            "direction": "O",
+            "left": "11",
+            "right": "0"
+          },
+          "o_DV": {
+            "direction": "O"
+          }
+        }
+      },
+      "top_0": {
+        "vlnv": "xilinx.com:module_ref:top:1.0",
+        "ip_revision": "1",
+        "xci_name": "design_1_top_0_0",
+        "xci_path": "ip\\design_1_top_0_0\\design_1_top_0_0.xci",
+        "inst_hier_path": "top_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "top",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "ready": {
+            "direction": "I"
+          },
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "CLK_DOMAIN": {
+                "value": "design_1_clk_0",
+                "value_src": "default_prop"
+              }
+            }
+          },
+          "dv_1": {
+            "direction": "I"
+          },
+          "dv_2": {
+            "direction": "I"
+          },
+          "dv_3": {
+            "direction": "I"
+          },
+          "dv_4": {
+            "direction": "I"
+          },
+          "dv_5": {
+            "direction": "I"
+          },
+          "hh": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "mm": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "ss": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "doy": {
+            "direction": "I",
+            "left": "11",
+            "right": "0"
+          },
+          "yy": {
+            "direction": "I",
+            "left": "7",
+            "right": "0"
+          },
+          "done": {
+            "direction": "O"
+          },
+          "data": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "od": {
+            "direction": "O"
+          }
+        }
+      }
+    },
+    "nets": {
+      "Binary_to_BCD_0_o_BCD": {
+        "ports": [
+          "Binary_to_BCD_0/o_BCD",
+          "top_0/hh"
+        ]
+      },
+      "Binary_to_BCD_0_o_DV": {
+        "ports": [
+          "Binary_to_BCD_0/o_DV",
+          "top_0/dv_1"
+        ]
+      },
+      "Binary_to_BCD_1_o_BCD": {
+        "ports": [
+          "Binary_to_BCD_1/o_BCD",
+          "top_0/mm"
+        ]
+      },
+      "Binary_to_BCD_1_o_DV": {
+        "ports": [
+          "Binary_to_BCD_1/o_DV",
+          "top_0/dv_2"
+        ]
+      },
+      "Binary_to_BCD_2_o_BCD": {
+        "ports": [
+          "Binary_to_BCD_2/o_BCD",
+          "top_0/ss"
+        ]
+      },
+      "Binary_to_BCD_2_o_DV": {
+        "ports": [
+          "Binary_to_BCD_2/o_DV",
+          "top_0/dv_3"
+        ]
+      },
+      "Binary_to_BCD_3_o_BCD": {
+        "ports": [
+          "Binary_to_BCD_3/o_BCD",
+          "top_0/yy"
+        ]
+      },
+      "Binary_to_BCD_3_o_DV": {
+        "ports": [
+          "Binary_to_BCD_3/o_DV",
+          "top_0/dv_4"
+        ]
+      },
+      "ManchesterEncoder_HQ_0_manchester_out": {
+        "ports": [
+          "ManchesterEncoder_HQ_0/manchester_out",
+          "manchester_out_0"
+        ]
+      },
+      "bcd_0_o_BCD": {
+        "ports": [
+          "bcd_0/o_BCD",
+          "top_0/doy"
+        ]
+      },
+      "bcd_0_o_DV": {
+        "ports": [
+          "bcd_0/o_DV",
+          "top_0/dv_5"
+        ]
+      },
+      "clk_0_1": {
+        "ports": [
+          "clk_0",
+          "gps2utc_ff_0/clk",
+          "ManchesterEncoder_HQ_0/clk",
+          "hamming_encoder_0/clk",
+          "Binary_to_BCD_0/i_Clock",
+          "Binary_to_BCD_1/i_Clock",
+          "Binary_to_BCD_2/i_Clock",
+          "Binary_to_BCD_3/i_Clock",
+          "bcd_0/i_Clock",
+          "top_0/clk"
+        ]
+      },
+      "gps2utc_ff_0_doy": {
+        "ports": [
+          "gps2utc_ff_0/doy",
+          "bcd_0/i_Binary"
+        ]
+      },
+      "gps2utc_ff_0_hh": {
+        "ports": [
+          "gps2utc_ff_0/hh",
+          "Binary_to_BCD_0/i_Binary"
+        ]
+      },
+      "gps2utc_ff_0_mm": {
+        "ports": [
+          "gps2utc_ff_0/mm",
+          "Binary_to_BCD_1/i_Binary"
+        ]
+      },
+      "gps2utc_ff_0_ss": {
+        "ports": [
+          "gps2utc_ff_0/ss",
+          "Binary_to_BCD_2/i_Binary"
+        ]
+      },
+      "gps2utc_ff_0_valid": {
+        "ports": [
+          "gps2utc_ff_0/valid",
+          "Binary_to_BCD_0/i_Start",
+          "Binary_to_BCD_1/i_Start",
+          "Binary_to_BCD_2/i_Start",
+          "Binary_to_BCD_3/i_Start",
+          "bcd_0/i_Start"
+        ]
+      },
+      "gps2utc_ff_0_yy": {
+        "ports": [
+          "gps2utc_ff_0/yy",
+          "Binary_to_BCD_3/i_Binary"
+        ]
+      },
+      "hamming_encoder_0_product": {
+        "ports": [
+          "hamming_encoder_0/product",
+          "ManchesterEncoder_HQ_0/time_msg"
+        ]
+      },
+      "hamming_encoder_0_ready": {
+        "ports": [
+          "hamming_encoder_0/ready",
+          "top_0/ready"
+        ]
+      },
+      "rst_0_1": {
+        "ports": [
+          "rst_0",
+          "gps2utc_ff_0/rst",
+          "ManchesterEncoder_HQ_0/reset",
+          "hamming_encoder_0/rst"
+        ]
+      },
+      "start_0_1": {
+        "ports": [
+          "start_0",
+          "gps2utc_ff_0/start",
+          "ManchesterEncoder_HQ_0/start"
+        ]
+      },
+      "top_0_data": {
+        "ports": [
+          "top_0/data",
+          "hamming_encoder_0/data"
+        ]
+      },
+      "top_0_done": {
+        "ports": [
+          "top_0/done",
+          "hamming_encoder_0/done"
+        ]
+      },
+      "top_0_od": {
+        "ports": [
+          "top_0/od",
+          "hamming_encoder_0/od"
+        ]
+      },
+      "tow_sec_0_1": {
+        "ports": [
+          "tow_sec_0",
+          "gps2utc_ff_0/tow_sec"
+        ]
+      },
+      "wn10_0_1": {
+        "ports": [
+          "wn10_0",
+          "gps2utc_ff_0/wn10"
+        ]
+      }
+    }
+  }
+}
